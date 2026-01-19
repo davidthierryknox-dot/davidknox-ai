@@ -32,7 +32,7 @@ export default function Hero() {
 
           {/* Brief bio */}
           <p className="text-lg md:text-xl text-navy/80 max-w-2xl leading-relaxed">
-            I work at the intersection of strategy and emerging technology, helping organizations navigate complexity and build what comes next.
+            I'm a systems-minded Connector at the cross-roads of strategy and emerging technology. I have helped organizations navigate complexity and empowered them to design what comes next.
           </p>
 
           {/* Subtle links */}
