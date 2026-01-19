@@ -12,6 +12,10 @@ export default function Work() {
 
   return (
     <section id="work" className="py-16 bg-warm-white overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 mb-10">
+        <p className="text-zissou font-medium">Work</p>
+      </div>
+
       {/* Scrolling logo marquee */}
       <div className="relative">
         {/* Gradient fade edges */}
