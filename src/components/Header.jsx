@@ -48,7 +48,7 @@ export default function Header() {
   return (
     <>
       {/* Left sidebar - hidden on mobile */}
-      <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-48 flex-col justify-between py-12 px-8 z-50">
+      <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-48 flex-col justify-between py-12 px-8 z-50 bg-cream">
         <nav className="flex flex-col gap-4">
           {navLinks.map((link) => (
             <a
