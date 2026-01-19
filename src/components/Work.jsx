@@ -11,20 +11,7 @@ export default function Work() {
   const doubledLogos = [...logos, ...logos]
 
   return (
-    <section id="work" className="py-24 bg-warm-white overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 mb-12">
-        <div className="text-center">
-          <p className="text-zissou font-medium mb-3">Experience</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-navy mb-4">
-            Trusted by industry leaders
-          </h2>
-          <p className="text-slate max-w-2xl mx-auto">
-            Working with global organizations at the intersection of tax technology,
-            compliance, and digital transformation.
-          </p>
-        </div>
-      </div>
-
+    <section id="work" className="py-16 bg-warm-white overflow-hidden">
       {/* Scrolling logo marquee */}
       <div className="relative">
         {/* Gradient fade edges */}
