@@ -11,7 +11,7 @@ export default function Work() {
   const doubledLogos = [...logos, ...logos]
 
   return (
-    <section id="work" className="py-16 bg-warm-white overflow-hidden">
+    <section id="work" className="py-16 bg-cream overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 mb-10">
         <p className="text-zissou font-medium">Work</p>
       </div>
