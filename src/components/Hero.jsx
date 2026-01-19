@@ -1,4 +1,8 @@
+import { useState } from 'react'
+
 export default function Hero() {
+  const [easterEgg, setEasterEgg] = useState(false)
+
   return (
     <section className="min-h-screen flex items-center pt-20 pb-16">
       <div className="max-w-6xl mx-auto px-6 w-full">
@@ -38,12 +42,17 @@ export default function Hero() {
           {/* Profile Image */}
           <div className="order-1 md:order-2 flex justify-center md:justify-end animate-fade-in-up">
             <div className="relative">
-              <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl bg-gradient-to-br from-zissou/20 to-mustard/20 overflow-hidden border-4 border-warm-white shadow-xl">
-                {/* Placeholder - replace with actual image */}
-                <div className="w-full h-full flex items-center justify-center bg-sand/50">
-                  <span className="text-6xl font-display font-bold text-navy/20">DK</span>
-                </div>
-              </div>
+              <button
+                onClick={() => setEasterEgg(!easterEgg)}
+                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl overflow-hidden border-4 border-warm-white shadow-xl cursor-pointer focus:outline-none focus:ring-4 focus:ring-zissou/30 transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                aria-label="Toggle profile photo"
+              >
+                <img
+                  src={easterEgg ? "/profile-easter-egg.jpg" : "/profile.jpg"}
+                  alt="David Knox"
+                  className="w-full h-full object-cover transition-opacity duration-300"
+                />
+              </button>
               {/* Decorative accent */}
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-mustard/30 rounded-xl -z-10"></div>
               <div className="absolute -top-4 -left-4 w-16 h-16 bg-zissou/20 rounded-lg -z-10"></div>

@@ -1,24 +1,38 @@
 const posts = [
   {
-    title: 'The Real Question About AI Adoption',
-    excerpt: 'The question isn\'t whether to adopt AI, but how to preserve strategic optionality while you do. Here\'s what the patterns reveal.',
+    title: 'The Strategic Optionality of AI',
+    excerpt: 'The real question isn\'t whether to adopt AI—it\'s how to preserve strategic optionality while you do. Here\'s what the patterns reveal across dozens of implementations.',
     category: 'Strategic Innovation',
-    date: 'Coming soon',
+    date: 'Jan 2026',
     featured: true,
+    link: '#',
   },
   {
-    title: 'Navigating Digital Transformation',
-    excerpt: 'Lessons from real transformations: what works, what doesn\'t, and why execution beats strategy every time.',
+    title: 'Innovation Without Execution Is Just Imagination',
+    excerpt: 'Lessons from real transformations: the gap between strategic vision and tangible outcomes, and what separates organizations that close it.',
     category: 'Practical Wisdom',
     date: 'Coming soon',
     featured: false,
+    link: '#',
   },
   {
-    title: 'Building with AI: A Practitioner\'s View',
-    excerpt: 'Moving from AI hype to AI results. The patterns I\'ve observed across dozens of implementations.',
+    title: 'Building Custom AI Skills',
+    excerpt: 'How I built open-source Claude Skills to extend AI capabilities. A practitioner\'s view on moving from hype to results.',
     category: 'Tool Building',
     date: 'Coming soon',
     featured: false,
+    link: 'https://github.com/davidthierryknox-dot/claude-skills',
+  },
+]
+
+const insights = [
+  {
+    quote: 'The interesting question is never "should we use AI?" but rather "what strategic options does this create or foreclose?"',
+    context: 'On AI strategy',
+  },
+  {
+    quote: 'Complexity isn\'t the enemy. Unclear thinking about complexity is.',
+    context: 'On transformation',
   },
 ]
 
@@ -33,15 +47,14 @@ export default function Writing() {
               Insights & Ideas
             </h2>
           </div>
-          <a
-            href="#"
-            className="mt-4 md:mt-0 text-zissou font-medium inline-flex items-center gap-2 hover:gap-3 transition-all"
-          >
-            View all posts
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
+        </div>
+
+        {/* Featured insight */}
+        <div className="mb-12 p-8 bg-navy rounded-2xl text-white">
+          <blockquote className="font-display text-xl md:text-2xl leading-relaxed mb-4">
+            "{insights[0].quote}"
+          </blockquote>
+          <p className="text-white/60 text-sm">{insights[0].context}</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -63,7 +76,9 @@ export default function Writing() {
                   <span className="text-xs text-slate">{post.date}</span>
                 </div>
                 <h3 className="font-display text-xl font-semibold text-navy mb-3 group-hover:text-zissou transition-colors">
-                  {post.title}
+                  <a href={post.link} target={post.link.startsWith('http') ? '_blank' : undefined} rel={post.link.startsWith('http') ? 'noopener noreferrer' : undefined}>
+                    {post.title}
+                  </a>
                 </h3>
                 <p className="text-slate text-sm leading-relaxed">
                   {post.excerpt}
@@ -73,8 +88,16 @@ export default function Writing() {
           ))}
         </div>
 
+        {/* Second insight */}
+        <div className="mt-12 p-6 border-l-4 border-mustard bg-warm-white rounded-r-xl">
+          <blockquote className="font-display text-lg text-navy leading-relaxed mb-2">
+            "{insights[1].quote}"
+          </blockquote>
+          <p className="text-slate text-sm">{insights[1].context}</p>
+        </div>
+
         {/* Newsletter CTA */}
-        <div className="mt-16 bg-navy rounded-2xl p-8 md:p-12 text-center">
+        <div className="mt-16 bg-gradient-to-br from-navy to-navy/90 rounded-2xl p-8 md:p-12 text-center">
           <h3 className="font-display text-2xl md:text-3xl font-bold text-white mb-4">
             Stay in the loop
           </h3>
