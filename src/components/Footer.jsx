@@ -55,8 +55,8 @@ export default function Footer() {
               Let&apos;s connect
             </h2>
             <p className="text-slate mb-6 max-w-md">
-              Whether you&apos;re navigating a complex transformation, exploring AI adoption,
-              or just want to exchange ideas&mdash;I&apos;d love to hear from you.
+              Whether you&apos;re navigating Nexus in Texas, exploring the edges of AGI,
+              or just want to talk about how Pomeranians are the best, I&apos;d love to hear from you.
             </p>
             <a
               href="mailto:david@davidknox.ai"
