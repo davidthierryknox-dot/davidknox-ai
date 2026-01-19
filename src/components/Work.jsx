@@ -1,9 +1,9 @@
 const logos = [
-  { name: 'Avalara', src: '/logos/Avalara_logo_color.webp' },
-  { name: 'Vertex', src: '/logos/vertex logo.png' },
-  { name: 'Google Partner', src: '/logos/new-Google-Partner-logo-png-large-size.png' },
-  { name: 'Oracle', src: '/logos/Oracle-Logo.jpg' },
-  { name: 'Sovos', src: '/logos/sovos logo.png' },
+  { name: 'Avalara', src: '/logos/Avalara_logo_color.webp', height: 'h-8 md:h-10' },
+  { name: 'Vertex', src: '/logos/vertex logo.png', height: 'h-6 md:h-8' },
+  { name: 'Google Partner', src: '/logos/new-Google-Partner-logo-png-large-size.png', height: 'h-12 md:h-14' },
+  { name: 'Oracle', src: '/logos/Oracle-Logo.jpg', height: 'h-8 md:h-10' },
+  { name: 'Sovos', src: '/logos/sovos logo.png', height: 'h-6 md:h-8' },
 ]
 
 export default function Work() {
@@ -31,16 +31,16 @@ export default function Work() {
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-warm-white to-transparent z-10"></div>
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-warm-white to-transparent z-10"></div>
 
-        <div className="flex animate-marquee">
+        <div className="flex items-center animate-marquee">
           {doubledLogos.map((logo, index) => (
             <div
               key={`${logo.name}-${index}`}
-              className="flex-shrink-0 mx-8 md:mx-12"
+              className="flex-shrink-0 mx-8 md:mx-12 flex items-center"
             >
               <img
                 src={logo.src}
                 alt={logo.name}
-                className="h-10 md:h-12 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                className={`${logo.height} w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300`}
               />
             </div>
           ))}
