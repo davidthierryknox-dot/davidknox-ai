@@ -11,7 +11,7 @@ export default function Hero() {
           <div className="flex items-center gap-6">
             <button
               onClick={() => setEasterEgg(!easterEgg)}
-              className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden border-2 border-sand shadow-md cursor-pointer focus:outline-none focus:ring-4 focus:ring-zissou/30 transition-transform hover:scale-105 active:scale-95 flex-shrink-0"
+              className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-2 border-sand shadow-md cursor-pointer focus:outline-none focus:ring-4 focus:ring-zissou/30 transition-transform hover:scale-105 active:scale-95 flex-shrink-0"
               aria-label="Toggle profile photo"
             >
               <img
