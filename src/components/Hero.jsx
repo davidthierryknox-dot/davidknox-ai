@@ -34,22 +34,6 @@ export default function Hero() {
           <p className="text-lg md:text-xl text-navy/80 max-w-2xl leading-relaxed">
             I'm a systems-minded Connector at the cross-roads of strategy and emerging technology. I have helped organizations navigate complexity and empowered them to design what comes next.
           </p>
-
-          {/* Subtle links */}
-          <div className="flex flex-wrap gap-6 text-sm">
-            <a href="#about" className="text-zissou hover:text-navy transition-colors link-underline">
-              About
-            </a>
-            <a href="#writing" className="text-zissou hover:text-navy transition-colors link-underline">
-              Writing
-            </a>
-            <a href="#work" className="text-zissou hover:text-navy transition-colors link-underline">
-              Work
-            </a>
-            <a href="#contact" className="text-zissou hover:text-navy transition-colors link-underline">
-              Contact
-            </a>
-          </div>
         </div>
       </div>
     </section>

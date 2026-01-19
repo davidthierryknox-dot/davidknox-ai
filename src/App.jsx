@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="min-h-screen bg-cream">
       <Header />
-      <main>
+      <main className="lg:ml-48">
         <Hero />
         <About />
         <Writing />

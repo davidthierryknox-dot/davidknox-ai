@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react'
-
 const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Writing', href: '#writing' },
@@ -47,51 +45,46 @@ const socialLinks = [
 ]
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-cream/95 backdrop-blur-sm border-b border-sand'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo / Name */}
-          <a
-            href="#"
-            className="font-display text-xl font-semibold text-navy hover:text-zissou transition-colors"
-          >
+    <>
+      {/* Left sidebar - hidden on mobile */}
+      <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-48 flex-col justify-between py-12 px-8 z-50">
+        <nav className="flex flex-col gap-4">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-navy/70 hover:text-zissou transition-colors text-sm font-medium"
+            >
+              {link.name}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex flex-col gap-4">
+          {socialLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-navy/50 hover:text-zissou transition-colors"
+              aria-label={link.name}
+            >
+              {link.icon}
+            </a>
+          ))}
+        </div>
+      </aside>
+
+      {/* Mobile header */}
+      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-sand">
+        <div className="px-6 py-4 flex items-center justify-between">
+          <a href="#" className="font-display text-lg font-semibold text-navy">
             David Knox
           </a>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-navy/80 hover:text-zissou transition-colors text-sm font-medium link-underline"
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
-
-          {/* Social Links */}
-          <div className="hidden md:flex items-center gap-4">
-            {socialLinks.map((link) => (
+          <div className="flex items-center gap-4">
+            {socialLinks.slice(0, 3).map((link) => (
               <a
                 key={link.name}
                 href={link.href}
@@ -104,55 +97,8 @@ export default function Header() {
               </a>
             ))}
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-navy p-2"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
         </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <nav className="md:hidden pt-4 pb-2 border-t border-sand mt-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block py-2 text-navy/80 hover:text-zissou transition-colors font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-            <div className="flex items-center gap-4 pt-4 mt-2 border-t border-sand">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-navy/60 hover:text-zissou transition-colors"
-                  aria-label={link.name}
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </div>
-          </nav>
-        )}
-      </div>
-    </header>
+      </header>
+    </>
   )
 }
