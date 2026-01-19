@@ -21,7 +21,7 @@ export default function Hero() {
               />
             </button>
             <div>
-              <h1 className="font-display text-3xl md:text-4xl font-bold text-navy">
+              <h1 className="font-display text-4xl md:text-5xl font-bold text-navy">
                 David Knox
               </h1>
               <p className="text-slate mt-1">
