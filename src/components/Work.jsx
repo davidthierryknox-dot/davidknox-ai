@@ -1,34 +1,31 @@
-const projects = [
+const logos = [
   {
-    title: 'Claude Skills',
-    description: 'Open-source custom skills for Claude AI, enabling extended capabilities and specialized workflows.',
-    tags: ['AI', 'Open Source', 'Automation'],
-    link: 'https://github.com/davidthierryknox-dot/claude-skills',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+    name: 'Avalara',
+    logo: (
+      <svg viewBox="0 0 512 116" className="h-8 md:h-10 w-auto" fill="currentColor">
+        <path d="M89.5 87.9H75.8l-6.3-16.4H35.2l-6.1 16.4H15.6L52 3.8h11.2l26.3 84.1zM52.5 23.5L39.8 59h25l-12.3-35.5zM136.1 87.9h-13.5l-30.4-84h14.6l22.3 64.6 22.5-64.6h14.4l-29.9 84zM222.8 87.9h-13.5l-6.3-16.4h-34.3l-6.1 16.4h-13.5l36.4-84.1h11.2l26 84.1zm-37-64.4L173 59h25.1l-12.3-35.5zM232.8 87.9V3.8h13.1v72.3h40.7v11.8h-53.8zM354.5 87.9h-13.5l-6.3-16.4h-34.3l-6.1 16.4h-13.5l36.4-84.1H328l26.5 84.1zm-37-64.4L305.2 59h25l-12.7-35.5zM410.5 87.9h-13.7V48.3h-13.1v39.6h-13.6V3.8h26.9c15.7 0 25.8 9.7 25.8 23.5 0 10.9-6.6 19.3-17.5 22l17.3 26.8v11.8h-12.1zm-26.8-51.3h13.3c7.8 0 12.5-4.6 12.5-11.4 0-6.7-4.7-11.3-12.5-11.3h-13.3v22.7zM487.4 87.9h-13.5l-6.3-16.4h-34.3l-6.1 16.4h-13.5l36.4-84.1h11.2l26.1 84.1zm-37-64.4L438.1 59h25l-12.7-35.5z"/>
       </svg>
     ),
   },
   {
-    title: 'Strategic Consulting',
-    description: 'Helping organizations navigate digital transformation and AI adoption with clarity and purpose.',
-    tags: ['Strategy', 'Transformation', 'Advisory'],
-    link: '#contact',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+    name: 'Vertex',
+    logo: (
+      <svg viewBox="0 0 600 120" className="h-8 md:h-10 w-auto" fill="currentColor">
+        <path d="M85.7 95.5H66.8L33.4 8h20.9l22.7 61.7L99.8 8h20.5L85.7 95.5zM166.5 95.5h-56V8h55.3v16.4h-36.5v18.8h32.9v16.3h-32.9v19.6h37.2v16.4zM249.7 95.5h-22.3L203 57.2v38.3h-18.8V8h33.4c19.9 0 32.3 11.5 32.3 27.6 0 13.2-8.5 23.2-22.1 26.2l22.9 33.7h-1zm-46.7-52h14.6c9.5 0 15.1-5.3 15.1-13.2 0-7.8-5.6-13-15.1-13H203v26.2zM323.8 24.5h-27.3v71h-18.8v-71h-27.2V8h73.3v16.5zM377.2 95.5h-56V8h55.3v16.4h-36.5v18.8H373v16.3h-32.9v19.6h37.1v16.4zM460.7 95.5h-22.3l-24.4-38.3v38.3h-18.8V8h33.4c19.9 0 32.3 11.5 32.3 27.6 0 13.2-8.5 23.2-22.1 26.2l22.9 33.7h-1zM414 43.5h14.6c9.5 0 15.1-5.3 15.1-13.2 0-7.8-5.6-13-15.1-13H414v26.2z"/>
       </svg>
     ),
   },
   {
-    title: 'Innovation Advisory',
-    description: 'Guiding R&D and product teams on emerging technology integration and future-proofing strategies.',
-    tags: ['Innovation', 'R&D', 'Technology'],
-    link: '#contact',
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+    name: 'Google Cloud Partner',
+    logo: (
+      <svg viewBox="0 0 272 40" className="h-8 md:h-10 w-auto" fill="currentColor">
+        <path d="M20.3 13.8c0-1.6-.5-2.9-1.4-3.9-.9-1-2.2-1.5-3.7-1.5-1.6 0-2.9.5-3.9 1.6-1 1-1.5 2.4-1.5 4s.5 2.9 1.5 3.9c1 1 2.3 1.5 3.9 1.5 1.1 0 2-.2 2.9-.7.8-.5 1.5-1.1 1.9-1.9l-1.9-1.3c-.6 1-1.5 1.5-2.8 1.5-.9 0-1.7-.3-2.3-.8-.6-.5-1-1.3-1.1-2.2h8.4v-.7zm-8.4-1c.1-.8.4-1.4.9-1.9.5-.5 1.2-.7 2-.7.7 0 1.3.2 1.8.7.5.5.8 1.1.9 1.9h-5.6zM31.4 8.6c-1.5 0-2.8.5-3.8 1.6-1 1-1.5 2.4-1.5 4s.5 3 1.5 4c1 1 2.3 1.5 3.8 1.5s2.8-.5 3.8-1.5c1-1 1.5-2.4 1.5-4s-.5-3-1.5-4c-1-1.1-2.3-1.6-3.8-1.6zm2.2 7.8c-.5.6-1.2.9-2.2.9-.9 0-1.6-.3-2.2-.9-.5-.6-.8-1.4-.8-2.3 0-.9.3-1.7.8-2.3.5-.6 1.2-.9 2.2-.9.9 0 1.6.3 2.2.9.5.6.8 1.4.8 2.3 0 .9-.3 1.7-.8 2.3zM47.1 8.6c-1.5 0-2.8.5-3.8 1.6-1 1-1.5 2.4-1.5 4s.5 3 1.5 4c1 1 2.3 1.5 3.8 1.5s2.8-.5 3.8-1.5c1-1 1.5-2.4 1.5-4s-.5-3-1.5-4c-1-1.1-2.3-1.6-3.8-1.6zm2.3 7.8c-.5.6-1.2.9-2.2.9-.9 0-1.6-.3-2.2-.9-.5-.6-.8-1.4-.8-2.3 0-.9.3-1.7.8-2.3.5-.6 1.2-.9 2.2-.9.9 0 1.6.3 2.2.9.5.6.8 1.4.8 2.3-.1.9-.3 1.7-.8 2.3zM62.5 8.6c-1.2 0-2.2.4-2.9 1.3V8.8h-2.4v16.5h2.5v-6.2c.7.8 1.7 1.3 2.9 1.3 1.4 0 2.6-.5 3.5-1.5 1-.9 1.4-2.3 1.4-4s-.5-3-1.4-4c-1-.9-2.2-1.3-3.6-1.3zm1.6 7.9c-.5.6-1.2.9-2 .9s-1.5-.3-2-.9c-.5-.6-.8-1.4-.8-2.4 0-.9.3-1.7.8-2.3.5-.6 1.2-.9 2-.9s1.5.3 2 .9c.5.6.8 1.4.8 2.3 0 1-.3 1.8-.8 2.4zM70.6 4.1h2.5v15.4h-2.5zM83.5 13.8c0-1.6-.5-2.9-1.4-3.9-.9-1-2.2-1.5-3.7-1.5-1.6 0-2.9.5-3.9 1.6-1 1-1.5 2.4-1.5 4s.5 2.9 1.5 3.9c1 1 2.3 1.5 3.9 1.5 1.1 0 2-.2 2.9-.7.8-.5 1.5-1.1 1.9-1.9l-1.9-1.3c-.6 1-1.5 1.5-2.8 1.5-.9 0-1.7-.3-2.3-.8-.6-.5-1-1.3-1.1-2.2h8.4v-.7zm-8.4-1c.1-.8.4-1.4.9-1.9.5-.5 1.2-.7 2-.7.7 0 1.3.2 1.8.7.5.5.8 1.1.9 1.9h-5.6z"/>
+        <path d="M105.2 14c0-3.9-3-7.1-6.9-7.1h-6.6v14.2h2.6v-4.9h3.3l3.2 4.9h3.1l-3.5-5.3c2.7-.8 4.8-2.8 4.8-5.8zm-6.9 4.5h-4v-6.5h4c2.3 0 4.2 1.4 4.2 3.3 0 1.8-1.9 3.2-4.2 3.2zM118.4 8.8v6.8c0 1.8-1.2 2.9-2.8 2.9s-2.8-1.1-2.8-2.9V8.8h-2.5v7.1c0 2.9 2 5 5.2 5 1.4 0 2.5-.5 3.2-1.3v1.1h2.4V8.8h-2.5zM133.3 9.9c-.7-.8-1.7-1.3-2.9-1.3-1.4 0-2.6.5-3.5 1.5-1 1-1.4 2.3-1.4 4s.5 3 1.4 4c.9 1 2.1 1.5 3.5 1.5 1.2 0 2.2-.4 2.9-1.3v1.1h2.4V8.8h-2.4v1.1zm-.4 5.6c-.5.6-1.2.9-2 .9s-1.5-.3-2-.9c-.5-.6-.8-1.4-.8-2.4 0-.9.3-1.7.8-2.3.5-.6 1.2-.9 2-.9s1.5.3 2 .9c.5.6.8 1.4.8 2.3 0 1-.3 1.8-.8 2.4zM140.9 4.1h2.5v15.4h-2.5zM148.6 6.2c.9 0 1.6-.7 1.6-1.6s-.7-1.6-1.6-1.6-1.6.7-1.6 1.6.7 1.6 1.6 1.6zM147.4 8.8h2.5v10.7h-2.5zM159.8 6.8v2h-2.3v7.3c0 .9.5 1.4 1.4 1.4h.9v2h-1.5c-2.2 0-3.3-1.1-3.3-3.4v-7.2h-1.8v-2h1.8V4.1h2.5v2.7h2.3zM169.5 20.4c-.8-.5-1.3-1-1.6-1.6l-.1.1-1.2 1.6c.3.4.9.9 1.8 1.4.9.5 2 .8 3.3.8 1.7 0 3-.4 4-1.3 1-.8 1.5-2 1.5-3.3 0-1.1-.4-2-1.1-2.6-.8-.6-1.9-1.1-3.3-1.3l-1.7-.3c-.8-.1-1.4-.4-1.8-.6-.4-.3-.6-.6-.6-1.1 0-.5.2-1 .7-1.3.5-.3 1.1-.5 2-.5 1.5 0 2.5.5 3.2 1.5l1.9-1.3c-.5-.8-1.2-1.4-2-1.8-.9-.4-1.9-.7-3.1-.7-1.5 0-2.8.4-3.7 1.2-1 .8-1.4 1.9-1.4 3.2 0 1.1.4 2 1.1 2.6.7.6 1.8 1 3.2 1.3l1.6.3c.9.2 1.5.4 1.9.7.4.3.6.7.6 1.2 0 .6-.3 1.1-.8 1.4-.5.3-1.3.5-2.2.5-1.4.1-2.4-.3-3.2-1.1zM188.9 8.6c-1.6 0-2.9.5-3.9 1.6-1 1.1-1.5 2.4-1.5 4.1 0 1.6.5 2.9 1.5 3.9 1 1 2.3 1.5 3.9 1.5 2 0 3.6-.9 4.6-2.6l-2-1.2c-.5.9-1.4 1.4-2.5 1.4-.9 0-1.6-.3-2.2-.8-.6-.5-.9-1.2-1-2.1h8.2c0-.1.1-.4.1-.7 0-1.6-.5-2.9-1.4-3.9-1-1-2.2-1.2-3.8-1.2zm-2.9 4.1c.1-.8.4-1.4.9-1.9.5-.5 1.2-.7 2-.7.7 0 1.3.2 1.8.7.5.5.8 1.1.9 1.9h-5.6zM205.9 8.6c-1.2 0-2.1.4-2.8 1.2V8.8h-2.4v10.7h2.5v-6.1c0-.9.2-1.5.6-2 .4-.5 1-.7 1.8-.7.7 0 1.2.2 1.6.6.4.4.5 1 .5 1.7v6.5h2.5v-6.7c0-1.5-.4-2.6-1.1-3.3-.8-.6-1.9-.9-3.2-.9zM216.9 6.2c.9 0 1.6-.7 1.6-1.6s-.7-1.6-1.6-1.6-1.6.7-1.6 1.6.7 1.6 1.6 1.6zM215.6 8.8h2.5v10.7h-2.5zM229.4 9.9c-.7-.8-1.7-1.3-2.9-1.3-1.4 0-2.6.5-3.5 1.5-1 1-1.4 2.3-1.4 4s.5 3 1.4 4c.9 1 2.1 1.5 3.5 1.5 1.2 0 2.2-.4 2.9-1.3v1.1h2.4V8.8h-2.4v1.1zm-.4 5.6c-.5.6-1.2.9-2 .9s-1.5-.3-2-.9c-.5-.6-.8-1.4-.8-2.4 0-.9.3-1.7.8-2.3.5-.6 1.2-.9 2-.9s1.5.3 2 .9c.5.6.8 1.4.8 2.3 0 1-.3 1.8-.8 2.4z"/>
+        <path fill="#4285F4" d="M93.4 29.4c-5.3 0-9.6 4-9.6 9.5s4.3 9.5 9.6 9.5 9.6-4 9.6-9.5-4.3-9.5-9.6-9.5zm0 15.3c-2.9 0-5.4-2.4-5.4-5.8s2.5-5.8 5.4-5.8 5.4 2.4 5.4 5.8-2.5 5.8-5.4 5.8z"/>
+        <path fill="#EA4335" d="M114.5 29.4c-5.3 0-9.6 4-9.6 9.5s4.3 9.5 9.6 9.5 9.6-4 9.6-9.5-4.3-9.5-9.6-9.5zm0 15.3c-2.9 0-5.4-2.4-5.4-5.8s2.5-5.8 5.4-5.8 5.4 2.4 5.4 5.8-2.5 5.8-5.4 5.8z"/>
+        <path fill="#FBBC05" d="M135.5 29.4c-5.3 0-9.6 4-9.6 9.5s4.3 9.5 9.6 9.5 9.6-4 9.6-9.5-4.3-9.5-9.6-9.5zm0 15.3c-2.9 0-5.4-2.4-5.4-5.8s2.5-5.8 5.4-5.8 5.4 2.4 5.4 5.8-2.5 5.8-5.4 5.8z"/>
+        <path fill="#4285F4" d="M156.6 29.4c-5.3 0-9.6 4-9.6 9.5s4.3 9.5 9.6 9.5 9.6-4 9.6-9.5-4.3-9.5-9.6-9.5zm0 15.3c-2.9 0-5.4-2.4-5.4-5.8s2.5-5.8 5.4-5.8 5.4 2.4 5.4 5.8-2.5 5.8-5.4 5.8z"/>
+        <path fill="#34A853" d="M172.2 47.8V30h3.9v17.8h-3.9zm15.9-14.4c-3.6 0-6.5 2.7-6.5 6.5 0 4.1 2.9 6.5 6.8 6.5 2.8 0 4.4-1.1 5.7-2.6l-2.3-1.5c-.6.9-1.8 1.8-3.4 1.8-1.9 0-2.9-.9-3.4-2.1l9.3-3.8-.5-1.1c-.9-2.4-3.1-3.7-5.7-3.7zm.1 3.1c1.3 0 2.2.6 2.6 1.5l-6.2 2.6c-.2-2.1 1.7-4.1 3.6-4.1z"/>
       </svg>
     ),
   },
@@ -38,46 +35,26 @@ export default function Work() {
   return (
     <section id="work" className="py-24 bg-warm-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <p className="text-zissou font-medium mb-3">Work</p>
+        <div className="text-center mb-16">
+          <p className="text-zissou font-medium mb-3">Experience</p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-navy mb-4">
-            What I build & how I help
+            Trusted by industry leaders
           </h2>
           <p className="text-slate max-w-2xl mx-auto">
-            From open-source tools to strategic advisory, I focus on creating tangible
-            value at the intersection of technology and business strategy.
+            Working with global organizations at the intersection of tax technology,
+            compliance, and digital transformation.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {projects.map((project) => (
-            <a
-              key={project.title}
-              href={project.link}
-              target={project.link.startsWith('http') ? '_blank' : undefined}
-              rel={project.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="group block bg-cream rounded-xl border border-sand p-6 card-hover"
+        <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 lg:gap-24">
+          {logos.map((item) => (
+            <div
+              key={item.name}
+              className="text-navy/70 hover:text-navy transition-colors"
+              title={item.name}
             >
-              <div className="text-zissou mb-4 group-hover:text-mustard transition-colors">
-                {project.icon}
-              </div>
-              <h3 className="font-display text-xl font-semibold text-navy mb-2 group-hover:text-zissou transition-colors">
-                {project.title}
-              </h3>
-              <p className="text-slate text-sm mb-4 leading-relaxed">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs font-medium text-navy/60 bg-sand/50 px-2 py-1 rounded"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </a>
+              {item.logo}
+            </div>
           ))}
         </div>
       </div>
