@@ -1,9 +1,9 @@
 const logos = [
-  { name: 'Avalara', src: '/logos/Avalara_logo_color.webp', height: 'h-8 md:h-10' },
-  { name: 'Vertex', src: '/logos/vertex logo.png', height: 'h-6 md:h-8' },
-  { name: 'Google Partner', src: '/logos/new-Google-Partner-logo-png-large-size.png', height: 'h-12 md:h-14' },
-  { name: 'Oracle', src: '/logos/Oracle-Logo.jpg', height: 'h-8 md:h-10' },
-  { name: 'Sovos', src: '/logos/sovos logo.png', height: 'h-6 md:h-8' },
+  { name: 'Avalara', src: '/logos/Avalara_logo_color.webp', height: 'h-10 md:h-12' },
+  { name: 'Vertex', src: '/logos/vertex logo.png', height: 'h-5 md:h-6' },
+  { name: 'Google Partner', src: '/logos/new-Google-Partner-logo-png-large-size.png', height: 'h-16 md:h-20' },
+  { name: 'Oracle', src: '/logos/Oracle-Logo.jpg', height: 'h-12 md:h-14' },
+  { name: 'Sovos', src: '/logos/sovos logo.png', height: 'h-5 md:h-6' },
 ]
 
 export default function Work() {
