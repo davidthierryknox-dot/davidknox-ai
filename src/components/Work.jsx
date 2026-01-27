@@ -7,26 +7,19 @@ const logos = [
 ]
 
 export default function Work() {
-  // Double the logos for seamless infinite scroll
-  const doubledLogos = [...logos, ...logos]
-
   return (
-    <section id="work" className="py-16 bg-cream overflow-hidden">
+    <section id="work" className="py-16 bg-cream">
       <div className="max-w-6xl mx-auto px-6 mb-10">
         <p className="text-zissou font-medium">Work</p>
       </div>
 
-      {/* Scrolling logo marquee */}
-      <div className="relative">
-        {/* Gradient fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-warm-white to-transparent z-10"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-warm-white to-transparent z-10"></div>
-
-        <div className="flex items-center animate-marquee">
-          {doubledLogos.map((logo, index) => (
+      {/* Centered logos */}
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+          {logos.map((logo) => (
             <div
-              key={`${logo.name}-${index}`}
-              className="flex-shrink-0 mx-8 md:mx-12 flex items-center"
+              key={logo.name}
+              className="flex items-center"
             >
               <img
                 src={logo.src}
