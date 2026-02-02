@@ -46,7 +46,7 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="py-16 border-t border-sand">
+    <footer id="contact" className="lg:ml-48 py-16 border-t border-sand">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 mb-12">
           {/* Contact CTA */}

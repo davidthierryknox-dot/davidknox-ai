@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react'
+
 const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Writing', href: '#writing' },
@@ -45,11 +47,34 @@ const socialLinks = [
 ]
 
 export default function Header() {
+  const [scrollY, setScrollY] = useState(0)
+  const [delayedScrollY, setDelayedScrollY] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setDelayedScrollY(scrollY)
+    }, 80)
+    return () => clearTimeout(timeout)
+  }, [scrollY])
+
+  const offset = (delayedScrollY - scrollY) * 0.15
+
   return (
     <>
       {/* Left sidebar - hidden on mobile */}
       <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-48 flex-col justify-between py-12 px-8 z-50 bg-cream">
-        <nav className="flex flex-col gap-4">
+        <nav
+          className="flex flex-col gap-4 transition-transform duration-300 ease-out"
+          style={{ transform: `translateY(${offset}px)` }}
+        >
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -61,7 +86,10 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex flex-col gap-4">
+        <div
+          className="flex flex-col gap-4 transition-transform duration-300 ease-out"
+          style={{ transform: `translateY(${offset}px)` }}
+        >
           {socialLinks.map((link) => (
             <a
               key={link.name}
