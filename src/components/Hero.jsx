@@ -1,39 +1,42 @@
-import { useState } from 'react'
-
 export default function Hero() {
-  const [easterEgg, setEasterEgg] = useState(false)
-
   return (
-    <section className="min-h-[70vh] flex items-center pt-24 pb-16">
-      <div className="max-w-6xl mx-auto px-6 w-full">
-        <div className="flex flex-col items-start gap-8">
-          {/* Profile + Name row */}
-          <div className="flex items-center gap-6">
-            <button
-              onClick={() => setEasterEgg(!easterEgg)}
-              className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-2 border-sand shadow-md cursor-pointer focus:outline-none focus:ring-4 focus:ring-zissou/30 transition-transform hover:scale-105 active:scale-95 flex-shrink-0"
-              aria-label="Toggle profile photo"
-            >
-              <img
-                src={easterEgg ? "/profile-easter-egg.jpg" : "/profile.jpg"}
-                alt="David Knox"
-                className="w-full h-full object-cover"
-              />
-            </button>
-            <div>
-              <h1 className="font-display text-4xl md:text-5xl font-bold text-navy">
-                David Knox
-              </h1>
-              <p className="text-slate mt-1">
-                Strategy & Technology
-              </p>
-            </div>
+    <section className="py-12 md:py-24">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-center">
+          {/* Text */}
+          <div className="animate-fade-in">
+            <h1 className="font-serif text-[clamp(2.5rem,8vw,3.052rem)] font-light text-charcoal tracking-[0.02em] leading-tight mb-4">
+              David Knox
+            </h1>
+            <p className="font-serif text-xl md:text-2xl text-wood leading-snug mb-8">
+              Strategy + Technology.
+              <br />
+              Thoughtful strategy and technical craft, delivered with quiet precision.
+            </p>
+            <p className="text-lg text-wood leading-relaxed max-w-[500px]">
+              I help organizations bridge business insight and technological execution—not through force, but through careful attention to what matters.
+            </p>
           </div>
 
-          {/* Brief bio */}
-          <p className="text-lg md:text-xl text-navy/80 max-w-2xl leading-relaxed">
-            I'm a systems-minded Connector at the cross-roads of strategy and emerging technology. I have helped organizations navigate complexity and empowered them to design what comes next.
-          </p>
+          {/* Avatar */}
+          <div className="flex justify-center items-center order-first md:order-last">
+            <div className="relative">
+              <div className="absolute inset-0 -m-2 rounded-full bg-sky opacity-12 blur-xl" />
+              <a
+                href="https://www.linkedin.com/in/davidthierryknox/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative block w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-[3px] border-cloud p-2 bg-paper no-underline focus:outline-none focus:ring-2 focus:ring-sky/40 shadow-[0_4px_20px_rgba(42,36,32,0.15)] transition-transform duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                aria-label="David Knox on LinkedIn"
+              >
+                <img
+                  src="/david-knox-avatar.png"
+                  alt="David Knox"
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

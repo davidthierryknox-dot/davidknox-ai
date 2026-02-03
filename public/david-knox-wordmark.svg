@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 60" width="400" height="60">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@300;500&amp;display=swap');
+      .wordmark-light { 
+        font-family: 'Spectral', Georgia, serif; 
+        font-weight: 300; 
+        font-size: 48px;
+        letter-spacing: 0.05em;
+        fill: #2a2420;
+      }
+      .wordmark-medium { 
+        font-family: 'Spectral', Georgia, serif; 
+        font-weight: 500; 
+        font-size: 48px;
+        letter-spacing: 0.08em;
+        fill: #2a2420;
+      }
+    </style>
+  </defs>
+  
+  <!-- DAVID in Light weight -->
+  <text x="10" y="45" class="wordmark-light">DAVID</text>
+  
+  <!-- KNOX in Medium weight -->
+  <text x="215" y="45" class="wordmark-medium">KNOX</text>
+</svg>

@@ -10,13 +10,13 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'profile.jpg'],
+      includeAssets: ['dk-monogram.svg', 'david-knox-avatar.png', 'david-knox-wordmark.svg'],
       manifest: {
         name: 'David Knox | Strategy + Technology',
         short_name: 'David Knox',
-        description: 'Bridging strategic thinking with emerging technology. Strategy, AI, and digital transformation advisory.',
-        theme_color: '#0f172a',
-        background_color: '#0f172a',
+        description: 'Thoughtful strategy and technical craft, delivered with quiet precision.',
+        theme_color: '#f7f5f0',
+        background_color: '#f7f5f0',
         display: 'standalone',
         start_url: '/',
         icons: [

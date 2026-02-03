@@ -46,21 +46,21 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="lg:ml-48 py-16 border-t border-sand">
-      <div className="max-w-6xl mx-auto px-6">
+    <footer id="contact" className="border-t border-cloud mt-24 py-12">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
         <div className="grid md:grid-cols-2 gap-12 mb-12">
           {/* Contact CTA */}
           <div>
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-navy mb-4">
+            <h2 className="font-serif text-2xl md:text-3xl font-normal text-charcoal tracking-[0.02em] mb-4">
               Let&apos;s connect
             </h2>
-            <p className="text-slate mb-6 max-w-md">
+            <p className="text-wood mb-6 max-w-md">
               Whether you&apos;re navigating Nexus in Texas, exploring the edges of AGI,
               or just want to talk about how Pomeranians are the best, I&apos;d love to hear from you.
             </p>
             <a
               href="mailto:david@davidknox.ai"
-              className="inline-flex items-center gap-2 text-zissou font-semibold hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-sky font-medium hover:gap-3 transition-all no-underline"
             >
               david@davidknox.ai
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,7 +76,7 @@ export default function Footer() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-navy/70 hover:text-zissou transition-colors text-sm font-medium"
+                  className="text-wood hover:text-sky transition-colors font-sans text-sm font-medium no-underline"
                 >
                   {link.name}
                 </a>
@@ -89,7 +89,7 @@ export default function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-navy/50 hover:text-zissou transition-colors"
+                  className="text-wood/50 hover:text-sky transition-colors"
                   aria-label={link.name}
                 >
                   {link.icon}
@@ -100,13 +100,13 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-sand/50 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm text-slate">
+        <div className="pt-8 border-t border-cloud/50 flex flex-col md:flex-row md:items-center md:justify-between gap-4 font-sans text-sm text-wood">
           <p>&copy; {new Date().getFullYear()} David Knox. All rights reserved.</p>
           <p className="flex items-center gap-1">
             Built with
-            <span className="text-coral">&hearts;</span>
+            <span className="text-brass">&hearts;</span>
             and
-            <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" className="text-zissou hover:underline">Claude</a>
+            <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" className="text-sky hover:underline">Claude</a>
           </p>
         </div>
       </div>

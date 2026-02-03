@@ -1,13 +1,12 @@
 export default function About() {
   return (
-    <section id="about" className="py-24 bg-cream">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="about" className="py-24">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
         <div className="max-w-3xl">
-          <p className="text-zissou font-medium mb-3">About</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-navy mb-6">
-            Strategic clarity meets technological possibility
+          <h2 className="font-serif text-[2.441rem] font-normal text-charcoal tracking-[0.02em] leading-snug mb-6">
+            About
           </h2>
-          <div className="prose text-slate">
+          <div className="prose text-wood">
             <p>
               I&apos;m a systems-thinker by instinct and drawn to messy problems where big ideas, data, and human decision-making collide.
             </p>

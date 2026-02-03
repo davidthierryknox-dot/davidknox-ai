@@ -2,35 +2,38 @@
 
 @theme {
   /* Primary Colors */
-  --color-navy: #1A2744;
-  --color-zissou: #4A90A4;
+  --color-charcoal: #2a2420;
+  --color-paper: #f7f5f0;
+  --color-sky: #a8b8c8;
 
-  /* Accent Colors */
-  --color-mustard: #D4A853;
-  --color-coral: #C65D52;
+  /* Secondary Colors */
+  --color-brass: #b8956a;
+  --color-wood: #4a3f35;
+  --color-cloud: #e8e6e0;
 
-  /* Neutrals */
-  --color-cream: #FAF7F2;
-  --color-warm-white: #FFFEFA;
-  --color-sand: #E8E2D9;
-  --color-slate: #6B7280;
+  /* Semantic Colors */
+  --color-success: #6a8a5f;
+  --color-warning: #c4a05a;
+  --color-error: #a65a4e;
 
   /* Font families */
-  --font-display: "Playfair Display", Georgia, serif;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-serif: 'Spectral', Georgia, Cambria, 'Times New Roman', serif;
+  --font-sans: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   margin: 0;
-  font-family: var(--font-sans);
-  background-color: var(--color-cream);
-  color: var(--color-navy);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  background-color: var(--color-paper);
+  color: var(--color-charcoal);
 }
 
 /* Prose styling for content */
@@ -44,6 +47,15 @@ body {
 }
 
 /* Smooth fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -53,6 +65,10 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.2s ease-out;
 }
 
 .animate-fade-in-up {
@@ -90,8 +106,8 @@ body {
   bottom: -2px;
   left: 0;
   width: 0;
-  height: 2px;
-  background-color: var(--color-zissou);
+  height: 1px;
+  background-color: var(--color-sky);
   transition: width 0.3s ease;
 }
 
@@ -101,17 +117,17 @@ body {
 
 /* Card hover effect */
 .card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px rgba(26, 39, 68, 0.12);
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(42, 36, 32, 0.08);
 }
 
 /* Selection styling */
 ::selection {
-  background-color: var(--color-zissou);
+  background-color: var(--color-sky);
   color: white;
 }
 
@@ -131,4 +147,26 @@ body {
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/* Dark mode (system preference) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-charcoal: #f7f5f0;
+    --color-paper: #2a2420;
+    --color-wood: #e8e6e0;
+    --color-cloud: #4a3f35;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

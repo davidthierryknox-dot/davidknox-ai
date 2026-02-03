@@ -26,9 +26,11 @@ export default function Writing() {
   }
 
   return (
-    <section id="writing" className="py-16">
-      <div className="max-w-6xl mx-auto px-6">
-        <p className="text-zissou font-medium mb-6">Writing</p>
+    <section id="writing" className="py-24">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
+        <h2 className="font-serif text-[2.441rem] font-normal text-charcoal tracking-[0.02em] leading-snug mb-8">
+          Writing
+        </h2>
 
         {/* Search bar */}
         <div className="relative mb-8 max-w-md">
@@ -37,10 +39,10 @@ export default function Writing() {
             placeholder="Search articles..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full px-4 py-3 pl-11 bg-warm-white border border-sand rounded-lg text-navy placeholder-slate/50 focus:outline-none focus:border-zissou focus:ring-2 focus:ring-zissou/20 transition-colors"
+            className="w-full px-4 py-3 pl-11 bg-paper border border-cloud rounded font-sans text-base text-charcoal placeholder-wood/50 focus:outline-none focus:border-sky focus:ring-2 focus:ring-sky/20 transition-colors"
           />
           <svg
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate/50"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-wood/50"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -55,7 +57,7 @@ export default function Writing() {
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-slate/50 hover:text-navy transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-wood/50 hover:text-charcoal transition-colors"
               aria-label="Clear search"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -67,29 +69,29 @@ export default function Writing() {
 
         {/* Articles list */}
         {articles.length === 0 ? (
-          <p className="text-slate/70 italic">Articles coming soon...</p>
+          <p className="text-wood/70 italic">Articles coming soon...</p>
         ) : filteredArticles.length === 0 ? (
-          <p className="text-slate/70">No articles found matching "{searchQuery}"</p>
+          <p className="text-wood/70">No articles found matching &ldquo;{searchQuery}&rdquo;</p>
         ) : (
           <div className="space-y-6">
             {filteredArticles.map((article) => (
               <article
                 key={article.title}
-                className="group border-b border-sand/50 pb-6 last:border-0"
+                className="group card-hover bg-white/40 border border-cloud rounded p-6"
               >
                 <a
                   href={article.link}
                   target={article.external ? '_blank' : undefined}
                   rel={article.external ? 'noopener noreferrer' : undefined}
-                  className="block"
+                  className="block no-underline"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="font-display text-xl font-semibold text-navy group-hover:text-zissou transition-colors">
+                      <h3 className="font-serif text-[1.375rem] font-medium text-charcoal group-hover:text-sky transition-colors">
                         {article.title}
                         {article.external && (
                           <svg
-                            className="inline-block ml-2 w-4 h-4 text-slate/50"
+                            className="inline-block ml-2 w-4 h-4 text-wood/50"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -103,13 +105,13 @@ export default function Writing() {
                           </svg>
                         )}
                       </h3>
-                      <p className="text-slate mt-1">{article.excerpt}</p>
+                      <p className="text-wood mt-1 text-base">{article.excerpt}</p>
                       {article.tags && article.tags.length > 0 && (
                         <div className="flex flex-wrap gap-2 mt-3">
                           {article.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="text-xs font-medium text-zissou/80 bg-zissou/10 px-2 py-1 rounded"
+                              className="font-sans text-xs font-medium text-sky/80 bg-sky/10 px-2 py-1 rounded"
                             >
                               {tag}
                             </span>
@@ -117,7 +119,7 @@ export default function Writing() {
                         </div>
                       )}
                     </div>
-                    <span className="text-sm text-slate/60 whitespace-nowrap">
+                    <span className="font-sans text-sm text-wood/60 whitespace-nowrap">
                       {formatDate(article.date)}
                     </span>
                   </div>
