@@ -13,9 +13,6 @@ export default function Hero() {
               <br />
               Thoughtful strategy and technical craft, delivered with quiet precision.
             </p>
-            <p className="text-lg text-wood leading-relaxed max-w-[500px]">
-              I help organizations bridge business insight and technological execution—not through force, but through careful attention to what matters.
-            </p>
           </div>
 
           {/* Avatar */}
