@@ -67,28 +67,16 @@ export default function Hero() {
   return (
     <section className="py-12 md:py-24">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
-        <div className="grid md:grid-cols-2 gap-8 md:gap-24 items-center">
-          {/* Text */}
-          <div className="animate-fade-in">
-            <h1 className="font-serif text-[clamp(2.5rem,8vw,3.052rem)] font-light text-charcoal tracking-[0.02em] leading-tight mb-4">
-              David <span className="font-medium">Knox</span>
-            </h1>
-            <p className="font-serif text-lg md:text-2xl text-wood leading-snug mb-8">
-              Strategy + Technology.
-              <br />
-              Thoughtful strategy and technical craft, delivered with quiet precision.
-            </p>
-          </div>
-
-          {/* Avatar */}
-          <div className="flex justify-center items-center order-first md:order-last">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Avatar Card */}
+          <div className="bento-card flex items-center justify-center py-8 md:py-12 order-first">
             <div className="relative" ref={avatarRef}>
               <div className={`absolute inset-0 -m-2 rounded-full bg-sky blur-xl transition-opacity duration-300 ${auraActive ? 'opacity-40' : 'opacity-12'}`} />
               <a
                 href="https://www.linkedin.com/in/davidthierryknox/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`relative block w-44 h-44 md:w-56 md:h-56 lg:w-80 lg:h-80 rounded-full overflow-hidden border-[3px] p-2 bg-paper no-underline focus:outline-none transition-all duration-300 ${auraActive ? 'border-sky shadow-[0_0_30px_rgba(168,184,200,0.5)]' : 'border-cloud shadow-[0_4px_20px_rgba(42,36,32,0.15)]'}`}
+                className={`relative block w-44 h-44 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-full overflow-hidden border-[3px] p-2 bg-paper no-underline focus:outline-none transition-all duration-300 ${auraActive ? 'border-sky shadow-[0_0_30px_rgba(168,184,200,0.5)]' : 'border-cloud shadow-[0_4px_20px_rgba(42,36,32,0.15)]'}`}
                 aria-label="David Knox on LinkedIn"
                 onMouseMove={handleMouseMove}
                 onClick={handleClick}
@@ -120,6 +108,18 @@ export default function Hero() {
                 </div>
               )}
             </div>
+          </div>
+
+          {/* Intro Card */}
+          <div className="bento-card flex flex-col justify-center animate-fade-in">
+            <h1 className="font-serif text-[clamp(2.5rem,8vw,3.052rem)] font-light text-charcoal tracking-[0.02em] leading-tight mb-4">
+              David <span className="font-medium">Knox</span>
+            </h1>
+            <p className="font-serif text-lg md:text-2xl text-wood leading-snug">
+              Strategy + Technology.
+              <br />
+              Thoughtful strategy and technical craft, delivered with quiet precision.
+            </p>
           </div>
         </div>
       </div>
