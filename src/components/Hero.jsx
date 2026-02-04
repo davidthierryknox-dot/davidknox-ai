@@ -71,7 +71,7 @@ export default function Hero() {
           {/* Text */}
           <div className="animate-fade-in">
             <h1 className="font-serif text-[clamp(2.5rem,8vw,3.052rem)] font-light text-charcoal tracking-[0.02em] leading-tight mb-4">
-              David Knox
+              David <span className="font-medium">Knox</span>
             </h1>
             <p className="font-serif text-lg md:text-2xl text-wood leading-snug mb-8">
               Strategy + Technology.
