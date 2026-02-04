@@ -7,7 +7,7 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-paper border-b border-cloud">
+    <header className="hidden md:block sticky top-0 z-50 bg-paper border-b border-cloud">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12 py-5 flex items-center justify-between">
         <a href="/" className="inline-block hover:opacity-80 transition-opacity">
           <img
