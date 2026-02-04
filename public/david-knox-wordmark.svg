@@ -9,9 +9,9 @@
         letter-spacing: 0.05em;
         fill: #2a2420;
       }
-      .wordmark-medium { 
-        font-family: 'Spectral', Georgia, serif; 
-        font-weight: 500; 
+      .wordmark-medium {
+        font-family: 'Spectral', Georgia, serif;
+        font-weight: 600; 
         font-size: 48px;
         letter-spacing: 0.08em;
         fill: #2a2420;
