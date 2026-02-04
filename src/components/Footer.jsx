@@ -46,7 +46,7 @@ const navLinks = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="border-t border-cloud mt-24 py-12">
+    <footer id="contact" className="border-t border-cloud mt-16 md:mt-24 py-12">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
         <div className="grid md:grid-cols-2 gap-12 mb-12">
           {/* Contact CTA */}
@@ -76,7 +76,7 @@ export default function Footer() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-wood hover:text-sky transition-colors font-sans text-sm font-medium no-underline"
+                  className="text-wood hover:text-sky transition-colors font-sans text-sm font-medium no-underline py-2"
                 >
                   {link.name}
                 </a>
@@ -89,7 +89,7 @@ export default function Footer() {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-wood/50 hover:text-sky transition-colors"
+                  className="text-wood/50 hover:text-sky transition-colors p-2"
                   aria-label={link.name}
                 >
                   {link.icon}

@@ -10,16 +10,16 @@ const logos = [
 
 export default function Work() {
   return (
-    <section id="work" className="py-24">
+    <section id="work" className="py-16 md:py-24">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12 mb-10">
-        <h2 className="font-serif text-[2.441rem] font-normal text-charcoal tracking-[0.02em] leading-snug">
+        <h2 className="font-serif text-[clamp(1.75rem,5vw,2.441rem)] font-normal text-charcoal tracking-[0.02em] leading-snug">
           Work
         </h2>
       </div>
 
       {/* Centered logos */}
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
+        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-12">
           {logos.map((logo) => (
             <div
               key={logo.name}
@@ -28,7 +28,7 @@ export default function Work() {
               <img
                 src={logo.src}
                 alt={logo.name}
-                className={`${logo.height} w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300`}
+                className={`${logo.height} w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 dark:invert dark:opacity-70 dark:hover:invert-0 dark:hover:opacity-100 transition-all duration-300`}
               />
             </div>
           ))}

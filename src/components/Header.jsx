@@ -17,13 +17,13 @@ export default function Header() {
           />
         </a>
 
-        <nav className="font-sans text-base" aria-label="Main navigation">
-          <ul className="flex items-center gap-6 md:gap-8 list-none m-0">
+        <nav className="font-sans text-sm md:text-base" aria-label="Main navigation">
+          <ul className="flex items-center gap-4 md:gap-8 list-none m-0">
             {navLinks.map((link) => (
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="text-charcoal no-underline hover:text-sky transition-colors duration-200"
+                  className="text-charcoal no-underline hover:text-sky transition-colors duration-200 py-2 px-1"
                 >
                   {link.name}
                 </a>

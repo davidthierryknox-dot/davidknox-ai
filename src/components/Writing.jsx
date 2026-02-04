@@ -26,9 +26,9 @@ export default function Writing() {
   }
 
   return (
-    <section id="writing" className="py-24">
+    <section id="writing" className="py-16 md:py-24">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
-        <h2 className="font-serif text-[2.441rem] font-normal text-charcoal tracking-[0.02em] leading-snug mb-8">
+        <h2 className="font-serif text-[clamp(1.75rem,5vw,2.441rem)] font-normal text-charcoal tracking-[0.02em] leading-snug mb-8">
           Writing
         </h2>
 
