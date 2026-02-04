@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Primary Colors */
   --color-charcoal: #2a2420;
@@ -155,14 +157,12 @@ body {
   animation-play-state: paused;
 }
 
-/* Dark mode (system preference) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-charcoal: #f7f5f0;
-    --color-paper: #2a2420;
-    --color-wood: #e8e6e0;
-    --color-cloud: #4a3f35;
-  }
+/* Dark mode (class-based, controlled by useSunTheme hook) */
+:root.dark {
+  --color-charcoal: #f7f5f0;
+  --color-paper: #2a2420;
+  --color-wood: #e8e6e0;
+  --color-cloud: #4a3f35;
 }
 
 /* Respect reduced motion */

@@ -4,8 +4,11 @@ import About from './components/About'
 import Writing from './components/Writing'
 import Work from './components/Work'
 import Footer from './components/Footer'
+import { useSunTheme } from './hooks/useSunTheme'
 
 function App() {
+  useSunTheme()
+
   return (
     <div className="min-h-screen bg-paper">
       <Header />

@@ -13,7 +13,7 @@ export default function Header() {
           <img
             src="/david-knox-wordmark.svg"
             alt="David Knox"
-            className="h-7 w-auto"
+            className="h-7 w-auto dark:invert"
           />
         </a>
 
