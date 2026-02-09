@@ -12,9 +12,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['dk-monogram.svg', 'david-knox-avatar.png', 'david-knox-wordmark.svg'],
       manifest: {
-        name: 'David Knox | Strategy + Technology',
+        name: 'David Knox | Risk Mitigation and Strategic Foresight',
         short_name: 'David Knox',
-        description: 'Thoughtful strategy and technical craft, delivered with quiet precision.',
+        description: 'Risk Mitigation and Strategic Foresight',
         theme_color: '#f7f5f0',
         background_color: '#f7f5f0',
         display: 'standalone',

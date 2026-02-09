@@ -4,9 +4,9 @@
 
 @theme {
   /* Primary Colors */
-  --color-charcoal: #2a2420;
+  --color-charcoal: #231e1a;
   --color-paper: #f7f5f0;
-  --color-sky: #a8b8c8;
+  --color-sky: #7a9ab8;
 
   /* Secondary Colors */
   --color-brass: #b8956a;
@@ -114,7 +114,7 @@ body {
   bottom: -2px;
   left: 0;
   width: 0;
-  height: 1px;
+  height: 2px;
   background-color: var(--color-sky);
   transition: width 0.3s ease;
 }
@@ -125,29 +125,38 @@ body {
 
 /* Card hover effect */
 .card-hover {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-hover:hover {
-  transform: scale(1.01);
-  box-shadow: 0 4px 12px rgba(42, 36, 32, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(35, 30, 26, 0.1);
 }
 
 /* Bento card styling */
 .bento-card {
   border-radius: 1.5rem;
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid var(--color-cloud);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(232, 230, 224, 0.7);
   padding: 1.5rem;
-  transition: box-shadow 0.2s ease;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 
 .bento-card:hover {
-  box-shadow: 0 4px 12px rgba(42, 36, 32, 0.08);
+  box-shadow: 0 8px 24px rgba(35, 30, 26, 0.1);
+  border-color: rgba(122, 154, 184, 0.3);
+  transform: translateY(-2px);
 }
 
 :root.dark .bento-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+:root.dark .bento-card:hover {
+  border-color: rgba(122, 154, 184, 0.25);
 }
 
 /* Selection styling */
@@ -174,10 +183,56 @@ body {
   animation-play-state: paused;
 }
 
+/* Subtle float animation for bento cards */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.bento-card {
+  animation: float 6s ease-in-out infinite;
+}
+
+.bento-card:nth-child(2) {
+  animation-delay: -2s;
+}
+
+.bento-card:nth-child(3) {
+  animation-delay: -4s;
+}
+
+/* Scroll-reveal animation */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.visible {
+  animation: revealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.reveal-delay-100.visible { animation-delay: 0.1s; }
+.reveal-delay-200.visible { animation-delay: 0.2s; }
+.reveal-delay-300.visible { animation-delay: 0.3s; }
+
 /* Dark mode (class-based, controlled by useSunTheme hook) */
 :root.dark {
   --color-charcoal: #f7f5f0;
-  --color-paper: #2a2420;
+  --color-paper: #231e1a;
   --color-wood: #e8e6e0;
   --color-cloud: #4a3f35;
 }

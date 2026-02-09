@@ -26,14 +26,15 @@ export default function Writing() {
   }
 
   return (
-    <section id="writing" className="py-16 md:py-24">
+    <section id="writing" className="py-4 md:py-6">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
-        <h2 className="font-serif text-[clamp(1.75rem,5vw,2.441rem)] font-normal text-charcoal tracking-[0.02em] leading-snug mb-8">
-          Writing
-        </h2>
+        <div className="bento-card reveal">
+          <h2 className="font-serif text-[clamp(1.75rem,5vw,2.441rem)] font-semibold text-charcoal tracking-[-0.01em] leading-snug mb-8">
+            Writing
+          </h2>
 
-        {/* Search bar */}
-        <div className="relative mb-8 max-w-md">
+          {/* Search bar */}
+          <div className="relative mb-8 max-w-md">
           <input
             type="text"
             placeholder="Search articles..."
@@ -73,7 +74,7 @@ export default function Writing() {
         ) : filteredArticles.length === 0 ? (
           <p className="text-wood/70">No articles found matching &ldquo;{searchQuery}&rdquo;</p>
         ) : (
-          <div className="space-y-6">
+          <div className="space-y-6 reveal">
             {filteredArticles.map((article) => (
               <article
                 key={article.title}
@@ -128,6 +129,7 @@ export default function Writing() {
             ))}
           </div>
         )}
+        </div>
       </div>
     </section>
   )

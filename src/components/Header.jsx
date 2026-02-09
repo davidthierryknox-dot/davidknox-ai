@@ -7,7 +7,7 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header className="hidden md:block sticky top-0 z-50 bg-paper border-b border-cloud">
+    <header className="hidden md:block sticky top-0 z-50 bg-paper/80 backdrop-blur-lg border-b border-cloud/50">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12 py-5 flex items-center justify-between">
         <a href="/" className="inline-block hover:opacity-80 transition-opacity">
           <img
@@ -17,7 +17,7 @@ export default function Header() {
           />
         </a>
 
-        <nav className="font-sans text-sm md:text-base" aria-label="Main navigation">
+        <nav className="font-sans text-sm md:text-base font-semibold tracking-wide uppercase" aria-label="Main navigation">
           <ul className="flex items-center gap-4 md:gap-8 list-none m-0">
             {navLinks.map((link) => (
               <li key={link.name}>
