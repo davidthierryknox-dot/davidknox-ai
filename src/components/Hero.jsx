@@ -8,6 +8,10 @@ export default function Hero() {
     setAuraActive((prev) => !prev)
   }, [])
 
+  const handleDoubleClick = useCallback(() => {
+    window.open('https://www.linkedin.com/in/davidthierryknox/', '_blank', 'noopener,noreferrer')
+  }, [])
+
   useEffect(() => {
     if (!auraActive) return
 
@@ -32,6 +36,7 @@ export default function Hero() {
               <div
                 className={`relative block w-44 h-44 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-full overflow-hidden border-[3px] p-2 bg-paper cursor-pointer transition-all duration-300 ${auraActive ? 'border-sky shadow-[0_0_30px_rgba(122,154,184,0.5)]' : 'border-cloud shadow-[0_4px_20px_rgba(35,30,26,0.15)]'}`}
                 onClick={handleClick}
+                onDoubleClick={handleDoubleClick}
               >
                 <img
                   src="/david-knox-headshot.jpg"
