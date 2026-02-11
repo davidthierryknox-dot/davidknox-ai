@@ -4,13 +4,27 @@ export default function Hero() {
   const [auraActive, setAuraActive] = useState(false)
   const avatarRef = useRef(null)
 
-  const handleClick = useCallback(() => {
-    setAuraActive((prev) => !prev)
-  }, [])
+  const clickCount = useRef(0)
+  const clickTimer = useRef(null)
 
-  const handleDoubleClick = useCallback(() => {
+  const openLinkedIn = useCallback(() => {
     window.open('https://www.linkedin.com/in/davidthierryknox/', '_blank', 'noopener,noreferrer')
   }, [])
+
+  const handleClick = useCallback(() => {
+    clickCount.current += 1
+
+    if (clickCount.current === 1) {
+      setAuraActive((prev) => !prev)
+      clickTimer.current = setTimeout(() => {
+        clickCount.current = 0
+      }, 1500)
+    } else if (clickCount.current >= 2) {
+      clearTimeout(clickTimer.current)
+      clickCount.current = 0
+      openLinkedIn()
+    }
+  }, [openLinkedIn])
 
   useEffect(() => {
     if (!auraActive) return
@@ -36,7 +50,6 @@ export default function Hero() {
               <div
                 className={`relative block w-44 h-44 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-full overflow-hidden border-[3px] p-2 bg-paper cursor-pointer transition-all duration-300 ${auraActive ? 'border-sky shadow-[0_0_30px_rgba(122,154,184,0.5)]' : 'border-cloud shadow-[0_4px_20px_rgba(35,30,26,0.15)]'}`}
                 onClick={handleClick}
-                onDoubleClick={handleDoubleClick}
               >
                 <img
                   src="/david-knox-headshot.jpg"
