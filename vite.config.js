@@ -19,10 +19,32 @@ export default defineConfig({
         background_color: '#f7f5f0',
         display: 'standalone',
         start_url: '/',
+        categories: ['business', 'personalization'],
+        shortcuts: [
+          {
+            name: 'Home',
+            url: '/',
+            description: 'Go to the homepage'
+          }
+        ],
+        screenshots: [
+          {
+            src: 'og-image.png',
+            sizes: '1200x630',
+            type: 'image/png',
+            form_factor: 'wide',
+            label: 'David Knox - Strategy + Technology'
+          }
+        ],
         icons: [
           {
             src: 'pwa-64x64.png',
             sizes: '64x64',
+            type: 'image/png'
+          },
+          {
+            src: 'pwa-144x144.png',
+            sizes: '144x144',
             type: 'image/png'
           },
           {
