@@ -48,26 +48,9 @@ export function useSunTheme() {
   const [location, setLocation] = useState(null)
   const [manualOverride, setManualOverride] = useState(null) // null = auto, 'light' or 'dark' = manual
 
-  // Fetch location via IP
-  useEffect(() => {
-    async function fetchLocation() {
-      try {
-        // Using ip-api.com (free, no key required, allows CORS)
-        const res = await fetch('https://ip-api.com/json/?fields=lat,lon,status')
-        const data = await res.json()
-
-        if (data.status === 'success') {
-          setLocation({ lat: data.lat, lng: data.lon })
-        } else {
-          setLocation(null)
-        }
-      } catch {
-        setLocation(null)
-      }
-    }
-
-    fetchLocation()
-  }, [])
+  // Location-based theming is available via getSunTimes/isDaytime above.
+  // To enable it, call setLocation({ lat, lng }) with user-consented coordinates.
+  // For now, we rely on prefers-color-scheme as the default.
 
   // Determine theme based on sun position
   useEffect(() => {

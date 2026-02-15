@@ -24,3 +24,10 @@ dist-ssr
 *.sw?
 .vercel
 .env*.local
+
+# Prevent source images in repo root (use public/ or public/logos/ instead)
+/*.jpg
+/*.jpeg
+/*.png
+/*.webp
+/*.gif
