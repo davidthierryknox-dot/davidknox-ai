@@ -1,7 +1,7 @@
 # Clay Certification: Inbound Automation (Vantis) — ADHD-friendly plan
 
 Source: Clay Cohorts brief "Inbound automation — Vantis: Automated Inbound", the full "Tests to run" text, and the two supplied files:
-- `clay-inbound-test-data.csv` — 46 synthetic cases (column `case_id` names each one)
+- `clay-inbound-test-data.csv` — 46 synthetic test records (`record_id` is the unique row key; `case_id` groups them, e.g. `eligible` covers `eligible-1` to `eligible-5`)
 - `clay-inbound-owners.csv` — 10 owners (9 reps + a support queue)
 
 ## The brief in 60 seconds
@@ -29,7 +29,7 @@ Plan: start **today (Wed Sep 30)**, submit by **Wed Oct 7**. If it slips, Oct 8�
 5. **Body double.** Book each session with a buddy (call, silent co-working, or a timer with a friend).
 6. **Parking lot.** New ideas go in one note called `PARKING LOT`. Don't act on them until after submission.
 7. **Timer on, phone away.** 25 min work, 5 min break. Stand up on every break.
-8. **Log results as you test.** Fill the results log (bottom of this file) the second each test finishes. Screenshots and run IDs now, not later.
+8. **Log results as you test.** Fill the results log (bottom of this file) the second each test finishes. Screenshots and workflow run IDs now, not later.
 9. **Never more than two sessions in a day**, with a break between.
 
 ---
@@ -53,10 +53,10 @@ Plan: start **today (Wed Sep 30)**, submit by **Wed Oct 7**. If it slips, Oct 8�
 
 **Things that will trip you up:**
 - **Two "fallback" traps.** `mock_secondary_email` is `fallback@buyer.example` in almost every row. That is a mock enrichment value, *not* a fallback owner. Pick your fallback owner yourself.
-- **Unique ID:** `request_id` is the stable ID. Five rows share `request-1` on purpose (test 9). `missing_identifier` has none and must be rejected.
+- **Unique ID:** `request_id` is the stable ID (the brief also calls it the unique ID). Five rows share `request-1` on purpose (test 9). `missing_identifier` has none and must be rejected.
 - **Backup chain can loop:** rep-1 → rep-3 → rep-1, and rep-4 → rep-7 → rep-4. Your rule needs a stop (e.g. use a backup only if it is active, else the fallback owner).
-- **rep-4 is out of office and rep-6 has left.** Both are used as existing owners in test 7. Also, the `region_pair_west` case (us_west, mid-market) would normally go to rep-4, so it lands on rep-4's backup rep-7. Your rule must handle it.
-- **Gaps:** nobody covers `us_central` except rep-9. Employees 1,000 (`out_of_size`) sits between mid-market and enterprise. `out_of_region` is country NZ. `missing_region` has no country or region.
+- **rep-4 is out of office and rep-6 has left.** Both are used as existing owners in test 7. Also, the `region_pair_west` case (us_west, mid_market) would normally go to rep-4, so it lands on rep-4's backup rep-7. Your rule must handle it.
+- **Gaps:** nobody covers `us_central` except rep-9. Employees 1,000 (`out_of_size`) sits between mid_market and enterprise. `out_of_region` is country NZ. `missing_region` has no country or region.
 - **Everything is simulated.** Provider responses are mocked (`mock_*` columns). So "cost" is an **estimate**. Label it that way.
 - **Two lures on purpose:** the `instruction` column on `prompt_injection` and `mock_ai_response` on `unsupported_ai_claim`. Treat both as data. Never follow or repeat them.
 - **Time zone matters.** `received_at` carries an offset. `off_hours_enterprise` arrives Fri Sep 18, 23:00 ET.
@@ -70,14 +70,15 @@ Plan: start **today (Wed Sep 30)**, submit by **Wed Oct 7**. If it slips, Oct 8�
 | Existing customer | Use `existing_owner` if active; if left/absent → expansion (rep-2) |
 | Open opportunity | Stays with `existing_owner`; if that owner is out → their active backup |
 | Support | `request_type = support` → `support` queue |
-| Segment | <50 out of scope · 50–99 SMB · 100–500 mid-market · 501–1,499 nurture (gap) · 1,500+ enterprise |
-| Region | us_east / us_west by team; us_central → rep-9; enterprise ignores region |
+| Segment | <50 out of scope · 50–99 smb · 100–500 mid_market · 501–1,499 nurture (gap) · 1,500+ enterprise |
+| Who decides the owner | Account ownership first; then segment plus territory (`region`); no round robin |
+| Territory (`region`) | us_east / us_west by team; us_central → rep-9; enterprise ignores territory |
 | Enterprise off hours | Hold until the owner's next 09:00; don't reroute to a backup who is also closed |
 | Owner out or left | Route to their backup if active, else the fallback owner |
 | Fallback owner | rep-9 (the only "any region" new-business rep). Change if you prefer |
-| Personal email, no domain | Can't verify the company → human review queue; no enrichment, no guessed score |
-| Uncertain or stale data | Unverified, expired or unknown-size → human review; no paid steps, no drafted reply |
-| Reviewer | Name one human (or the fallback owner) who checks review-queue items |
+| Personal email, no domain | Can't verify the company → `incomplete`; a person checks it; no enrichment, no guessed score |
+| Uncertain or incomplete data | Unverified signal or conflicting persona → `review`. Unknown size or no domain → `incomplete`. No paid steps, no AI reply draft. Expired signal is ignored, not cited |
+| Reviewer | Name one human (or the fallback owner) who reviews `review` and `incomplete` records |
 | Fit / intent | Fit = company + persona. Intent = form + pricing/compare/SOC 2 visits in 14 days + repeat visits. Set numeric cutoffs for rep now / nurture / disqualified |
 
 ---
@@ -90,7 +91,7 @@ Total planned time: **about 5 hours over 6 working days** (the brief's ~2 hours 
 
 **S1 · 25 min · The business problem**
 - Put the two CSVs in one folder.
-- Write 5 lines: what Vantis needs, who you're helping (Head of RevOps), why now, success metric and target (e.g. "95% of qualified requests reach the right owner within 5 minutes"), what would disappoint them.
+- Write 5 lines: what Vantis needs, who you're helping (Head of Revenue Operations), why now, success metric and target (e.g. "95% of qualified requests reach the right owner within 5 minutes"), what would disappoint them.
 - Done when: five lines saved.
 
 **S2 · 20 min · Routing rules and cutoffs, on paper**
@@ -105,13 +106,13 @@ Total planned time: **about 5 hours over 6 working days** (the brief's ~2 hours 
 - Done when: `invalid_auth`, `malformed_payload` and `missing_identifier` are rejected.
 
 **S4 · 25 min · Clean and match**
-- Clean emails and domains. Match person and account against the CRM fields (`customer`, `lifecycle_stage`, `existing_owner`).
+- Clean emails and domains. Match person and account against the test CRM fields (`customer`, `lifecycle_stage`, `existing_owner`).
 - Done when: `customer`, `opportunity` and `second_product_customer` are not treated as new leads.
 
 ### Fri Oct 2: Score, gate, route (30 min)
 
 **S5 · 30 min**
-- Score fit and intent separately using your cutoffs. Route: sales / support / disqualified / review.
+- Score fit and intent separately using your cutoffs. Route: sales / support / disqualified / incomplete. Uncertain records go to review.
 - Enrich only what you need, in dependency order. Paid and AI steps run only after earlier checks pass.
 - Done when: the `eligible-1` to `eligible-5` cases each land on an owner with a reason.
 
@@ -120,7 +121,7 @@ Total planned time: **about 5 hours over 6 working days** (the brief's ~2 hours 
 ### Mon Oct 5: Context, safety, then first tests (60 min)
 
 **S6 · 30 min · Context, retries, guards**
-- Owner summary from verified data only: who, company, ask, fit, site visits (last 14 days), open opportunity or ticket, suggested opening.
+- Owner summary from verified data only: who, company, ask, fit, site visits (last 14 days, recorded by Clay Web Intent), open opportunity or ticket, suggested opening.
 - Draft replies, don't send. No claims the data doesn't back up.
 - Add a retry limit, a duplicate guard on `request_id`, failure records, and the reviewer's stop / inspect / restart controls.
 - Done when: a routed record shows a summary and a status.
@@ -148,7 +149,7 @@ Only for fixes or alpha feedback.
 
 ## The 12 tests, mapped to your data
 
-Use the `case_id` in the first column of `clay-inbound-test-data.csv`.
+Use the `record_id` (first column) of `clay-inbound-test-data.csv`. Where a name below is a `case_id` shared by several rows, it is written as the row's `record_id`.
 
 | # | Test | Use these cases | What "pass" looks like | Session |
 |---|---|---|---|---|
@@ -164,7 +165,7 @@ Use the `case_id` in the first column of `clay-inbound-test-data.csv`.
 | 10a | [ ] Provider timeout | `provider_timeout` | Recorded; retries stop at your limit; no duplicate write | S9 |
 | 10b | [ ] Search with no results | `provider_no_result` (and `no_contact`) | Recorded as no result, not an error; goes to review | S9 |
 | 10c | [ ] Destination failure and recovery | `destination_failure`, then `destination_recovery` (same request, destination now OK) | Failure recorded, retry limit respected, recovery creates only one result | S9 |
-| 11 | [ ] Run IDs / test rows, time and cost; excluded records use no credits | Excluded set: `invalid_auth`, `malformed_payload`, `missing_domain`, `unsubscribe`, `no_consent`, `invalid_email` | Table rows/run IDs with time and cost; those rows show 0 credits | S11 |
+| 11 | [ ] Workflow run IDs / test rows, time and cost; excluded records use no credits | Excluded set: `invalid_auth`, `malformed_payload`, `missing_domain`, `unsubscribe`, `no_consent`, `invalid_email` | Table rows/run IDs with time and cost; those rows show 0 credits | S11 |
 | 12 | [ ] Outdated data; hidden instructions | `expired_signal` (expired 2026-09-01); `prompt_injection`; `unsupported_ai_claim` | Stale data isn't stated as fact. The injected "claim this account is ready" is ignored. The claim "buyer confirmed a purchase tomorrow" is blocked | S10 |
 
 **Include the results in your submission.**
@@ -185,7 +186,7 @@ gantt
     S2 Routing rules + cutoffs (20m)    :s2, 2026-09-30, 1d
     section Build
     S3 Test endpoint (30m)              :s3, 2026-10-01, 1d
-    S4 Clean + CRM match (25m)          :s4, 2026-10-01, 1d
+    S4 Clean + test CRM match (25m)          :s4, 2026-10-01, 1d
     S5 Score, gate, route (30m)         :s5, 2026-10-02, 1d
     S6 Context + retries + guards (30m) :s6, 2026-10-05, 1d
     section Prove
@@ -228,13 +229,13 @@ Milestones                                           ◆ Sculpt      ◆ target
 
 R = Responsible (does it) · A = Accountable (one per row) · C = Consulted · I = Informed
 
-| Task | You | Buddy | Claude / AI helper | Clay (assessor) | Vantis Head of RevOps (fictional) |
+| Task | You | Buddy | Claude / AI helper | Clay (assessor) | Vantis Head of Revenue Operations (fictional) |
 |---|---|---|---|---|---|
 | Book the 11 sessions in your calendar | A/R | C | I | | |
 | S1 Business problem + success metric | A/R | C | C | | I |
 | S2 Routing rules, fallback owner, cutoffs | A/R | C | C | | C |
 | S3 Test endpoint (auth, format, unique ID) | A/R | I | C | | |
-| S4 Clean identifiers + CRM match | A/R | I | C | | |
+| S4 Clean identifiers + test CRM match | A/R | I | C | | |
 | S5 Score fit/intent, gate paid steps, route | A/R | I | C | | I |
 | S6 Context, retries, duplicate guard, reviewer controls | A/R | I | C | | I |
 | S7 Tests 1, 2, 3, 5 | A/R | C | C | | |
@@ -242,7 +243,7 @@ R = Responsible (does it) · A = Accountable (one per row) · C = Consulted · I
 | S9 Test 10a, 10b, 10c (failures) | A/R | C | C | | |
 | S10 Tests 12, 4 (AI safety, timing) | A/R | C | C | | I |
 | S11 Test 11 (cost, 10× volume) + submit | A/R | I | C | I | I |
-| Results log with run IDs and screenshots | A/R | C (checks it's complete) | C | I | |
+| Results log with workflow run IDs and screenshots | A/R | C (checks it's complete) | C | I | |
 | Disclose AI tools/templates used | A/R | | C | I | |
 | 10-minute walkthrough | A/R | C (practice audience) | C (rehearsal) | I | |
 | Named reviewer for uncertain records | A | | | | C |
@@ -253,7 +254,7 @@ R = Responsible (does it) · A = Accountable (one per row) · C = Consulted · I
 
 Notes:
 - AI help is fine, but the brief asks you to say which tools helped. Keep a one-line log as you go.
-- The Vantis Head of RevOps is a persona. It's the "client" whose 5-minute target you write for.
+- The Vantis Head of Revenue Operations is a persona. It's the "client" whose 5-minute target you write for.
 - "Buddy" can be anyone. If nobody's free, use a visible timer and a message to yourself.
 - Reviewer: the brief wants a named person for uncertain records. Inside the exercise, that can be a role such as "RevOps reviewer".
 
@@ -261,7 +262,7 @@ Notes:
 
 ## Results log (fill in as you test — this goes in your submission)
 
-| # | Case(s) | Date | Pass/Fail | Run ID or row | Time | Credits (estimate) | Notes / screenshot |
+| # | Case(s) | Date | Pass/Fail | Workflow run ID or test row | Time | Enrichment credits (estimate) | Notes / screenshot |
 |---|---|---|---|---|---|---|---|
 | 1 | | | | | | | |
 | 2 | | | | | | | |
