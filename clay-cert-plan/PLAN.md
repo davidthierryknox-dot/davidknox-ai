@@ -70,7 +70,7 @@ Plan: start **today (Wed Sep 30)**, submit by **Wed Oct 7**. If it slips, Oct 8�
 | Existing customer | Use `existing_owner` if active; if left/absent → expansion (rep-2) |
 | Open opportunity | Stays with `existing_owner`; if that owner is out → their active backup |
 | Support | `request_type = support` → `support` queue |
-| Segment | <50 out of scope · 50–99 SMB · 100–500 mid-market · 501–1,499 review (gap) · 1,500+ enterprise |
+| Segment | <50 out of scope · 50–99 SMB · 100–500 mid-market · 501–1,499 nurture (gap) · 1,500+ enterprise |
 | Region | us_east / us_west by team; us_central → rep-9; enterprise ignores region |
 | Enterprise off hours | Hold until the owner's next 09:00; don't reroute to a backup who is also closed |
 | Owner out or left | Route to their backup if active, else the fallback owner |
