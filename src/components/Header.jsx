@@ -2,6 +2,7 @@ const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Writing', href: '#writing' },
   { name: 'Work', href: '#work' },
+  { name: 'Advisory', href: '/knoxlock' },
   { name: 'Contact', href: '#contact' },
 ]
 
