@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/knoxlock",
+      "destination": "/knoxlock/index.html"
+    },
+    {
+      "source": "/knoxlock/",
+      "destination": "/knoxlock/index.html"
+    },
+    {
       "source": "/manifest.json",
       "destination": "/manifest.webmanifest"
     }
