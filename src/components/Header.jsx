@@ -8,24 +8,16 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header className="hidden md:block sticky top-0 z-50 bg-paper/80 backdrop-blur-lg border-b border-cloud/50">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12 py-5 flex items-center justify-between">
-        <a href="/" className="inline-block hover:opacity-80 transition-opacity">
-          <img
-            src="/david-knox-wordmark.svg"
-            alt="David Knox"
-            className="h-7 w-auto dark:invert"
-          />
+    <header className="sticky top-0 z-50 bg-paper">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12 py-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <a href="/" className="font-sans text-xl font-semibold text-charcoal no-underline">
+          David Knox
         </a>
-
-        <nav className="font-sans text-sm md:text-base font-semibold tracking-wide uppercase" aria-label="Main navigation">
-          <ul className="flex items-center gap-4 md:gap-8 list-none m-0">
+        <nav className="font-sans text-sm font-medium" aria-label="Main navigation">
+          <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 list-none m-0 p-0">
             {navLinks.map((link) => (
               <li key={link.name}>
-                <a
-                  href={link.href}
-                  className="text-charcoal no-underline hover:text-sky transition-colors duration-200 py-2 px-1"
-                >
+                <a href={link.href} className="text-charcoal no-underline hover:text-sky py-1">
                   {link.name}
                 </a>
               </li>
