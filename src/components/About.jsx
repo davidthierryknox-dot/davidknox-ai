@@ -1,9 +1,9 @@
 export default function About() {
   return (
-    <section id="about" className="py-4 md:py-6">
+    <section id="about" className="py-3">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
         <div className="bento-card reveal">
-          <div className="max-w-3xl">
+          <div className="w-full">
             <h2 className="font-serif text-[clamp(1.75rem,5vw,2.441rem)] font-semibold text-charcoal tracking-[-0.01em] leading-snug mb-6">
               About
             </h2>
