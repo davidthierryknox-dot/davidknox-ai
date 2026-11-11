@@ -37,25 +37,18 @@ const socialLinks = [
   },
 ]
 
-const navLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Writing', href: '#writing' },
-  { name: 'Work', href: '#work' },
-  { name: 'Contact', href: '#contact' },
-]
-
 export default function Footer() {
   return (
-    <footer id="contact" className="mt-4 md:mt-6 py-8">
+    <footer id="contact" className="pt-3 pb-8">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
-        <div className="bento-card mb-12 reveal">
+        <div className="bento-card mb-6">
           <div className="grid md:grid-cols-2 gap-12">
           {/* Contact CTA */}
           <div>
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-charcoal tracking-[-0.01em] mb-4">
               Let&apos;s connect
             </h2>
-            <p className="text-wood mb-6 max-w-md">
+            <p className="text-wood mb-6">
               Whether you&apos;re navigating Nexus in Texas, exploring the edges of AGI,
               or just want to talk about how Pomeranians are the best, I&apos;d love to hear from you.
             </p>
@@ -72,17 +65,6 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="flex flex-col md:items-end">
-            <nav className="flex flex-wrap gap-6 mb-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-wood hover:text-sky transition-colors font-sans text-sm font-medium no-underline py-2"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </nav>
             <div className="flex items-center gap-4">
               {socialLinks.map((link) => (
                 <a
@@ -102,14 +84,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 border-t border-cloud/50 flex flex-col md:flex-row md:items-center md:justify-between gap-4 font-sans text-sm text-wood">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 font-sans text-sm text-wood">
           <p>&copy; {new Date().getFullYear()} David Knox. All rights reserved.</p>
-          <p className="flex items-center gap-1">
-            Built with
-            <span className="text-brass">&hearts;</span>
-            and
-            <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" className="text-sky hover:underline">Claude</a>
-          </p>
         </div>
       </div>
     </footer>
