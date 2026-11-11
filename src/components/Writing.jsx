@@ -26,7 +26,7 @@ export default function Writing() {
   }
 
   return (
-    <section id="writing" className="py-4 md:py-6">
+    <section id="writing" className="py-3">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8 lg:px-12">
         <div className="bento-card reveal">
           <h2 className="font-serif text-[clamp(1.75rem,5vw,2.441rem)] font-semibold text-charcoal tracking-[-0.01em] leading-snug mb-8">
